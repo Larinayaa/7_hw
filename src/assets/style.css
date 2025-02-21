@@ -68,14 +68,6 @@ textarea {
     background-color: #c72828;
     color: white;
 }
-
-
-
-
-
-
-
-
 nav {
     background: #ff69b4;
     padding: 10px;
@@ -83,9 +75,19 @@ nav {
     gap: 20px;
     justify-content: center;
 }
-
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+button {
+    margin: 10px;
 }
