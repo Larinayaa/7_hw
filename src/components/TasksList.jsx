@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import Task from "./Task";
 import "../assets/style.css";
 import { Link } from "react-router-dom";
-
 const TasksList = () => {
     const initialState = ["Задача 1", "Задача 2", "Задача 3"];
     const [tasks, setTasks] = useState(initialState);
@@ -15,11 +14,10 @@ const TasksList = () => {
             newTaskRef.current.value = "";
         }
     };
-
     return (
         <div className="container mt-4">
             <h1 className="mb-4 text-center">Менеджер задач</h1>
-            <Link to="/users">Перейти к пользователям</Link> {/* Ссылка на users */}
+            <Link to="/posts">Перейти к постам</Link> {}
             <div className="input-group mb-3">
                 <input ref={newTaskRef} type="text" className="form-control" />
                 <button 

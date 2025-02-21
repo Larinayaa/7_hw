@@ -5,7 +5,6 @@ const Task = ({ name, index, tasks, setTasks }) => {
     const [updatedTask, setUpdatedTask] = useState(name);
     const [isCompleted, setIsCompleted] = useState(false);
     const textRef = useRef(null);
-
     const handleTask = (action) => {
         switch (action) {
             case "save":
