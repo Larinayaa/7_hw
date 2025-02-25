@@ -7,20 +7,22 @@ import Counter from "./Counter";
 import Task from "./Task";
 import "../assets/style.css";
 const TasksList = () => {
-    const tasks = useSelector((state) => state.tasks.tasks); 
+    const tasks = useSelector((state) => state.tasks.tasks);
     const currentTheme = useSelector((state) => state.theme.theme);
     const dispatch = useDispatch();
     const newTaskRef = useRef();
+
     const handleClickAdd = () => {
         const newTask = newTaskRef.current.value.trim();
         if (newTask) {
-            dispatch(addTask(newTask)); 
+            dispatch(addTask(newTask));
             newTaskRef.current.value = "";
         }
     };
     const handleRemoveTask = (index) => {
-        dispatch(removeTask(index)); 
+        dispatch(removeTask(index));
     };
+
     const handleToggleTheme = () => {
         dispatch(toggleTheme());
     };
@@ -42,7 +44,7 @@ const TasksList = () => {
             </div>
             <div>
                 {tasks.map((task, i) => (
-                    <Task key={i} name={task} index={i} />
+                    <Task key={i} name={task} index={i} tasks={tasks} setTasks={handleRemoveTask} />
                 ))}
             </div>
         </div>

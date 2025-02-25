@@ -1,28 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchPosts } from "../store/postSlice";
 const PostList = () => {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
+    const dispatch = useDispatch();
+    const { posts, loading, error } = useSelector((state) => state.posts);
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
-            .then((response) => response.json())
-            .then((data) => {
-                setPosts(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Ошибка загрузки постов:", error);
-                setLoading(false);
-            });
-    }, []);
+        dispatch(fetchPosts()); 
+    }, [dispatch]);
+
     return (
         <div className="container mt-4">
             <h1 className="mb-4 text-center">Список постов</h1>
-            <Link to="/">Назад к задачам</Link> {}
+            <Link to="/">Назад к задачам</Link>
 
             {loading ? (
                 <p>Загрузка постов...</p>
+            ) : error ? (
+                <p>Ошибка загрузки постов: {error}</p>
             ) : (
                 <ul>
                     {posts.map((post) => (

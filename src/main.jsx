@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import TasksList from "./components/TasksList";
-import UserList from "./components/UserList"; 
+import UserList from "./components/UserList";
 import PostList from "./components/PostList";
 import store from "./store/store";
 import "./assets/style.css";
