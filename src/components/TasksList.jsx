@@ -11,7 +11,6 @@ const TasksList = () => {
     const currentTheme = useSelector((state) => state.theme.theme);
     const dispatch = useDispatch();
     const newTaskRef = useRef();
-
     const handleClickAdd = () => {
         const newTask = newTaskRef.current.value.trim();
         if (newTask) {
@@ -19,15 +18,12 @@ const TasksList = () => {
             newTaskRef.current.value = "";
         }
     };
-
     const handleRemoveTask = (index) => {
         dispatch(removeTask(index)); 
     };
-
     const handleToggleTheme = () => {
         dispatch(toggleTheme());
     };
-
     return (
         <div className={`container mt-4 ${currentTheme === "dark" ? "dark-theme" : "light-theme"}`}>
             <h1 className="mb-4 text-center">Менеджер задач</h1>

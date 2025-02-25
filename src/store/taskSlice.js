@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
     tasks: ["Задача 1", "Задача 2", "Задача 3"],
 };

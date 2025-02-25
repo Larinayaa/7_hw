@@ -7,7 +7,6 @@ const Task = ({ name, index }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const textRef = useRef(null);
   const dispatch = useDispatch(); 
-
   const handleTask = (action) => {
     switch (action) {
       case "save":
@@ -27,7 +26,6 @@ const Task = ({ name, index }) => {
         console.error("Неизвестное действие:", action);
     }
   };
-
   return (
     <div className="task">
       <input
